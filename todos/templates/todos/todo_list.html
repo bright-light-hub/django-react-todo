@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Tasks</title>
+</head>
+<body>
+    <h1>My Todo List 📝</h1>
+
+    <ul>
+        {% for todo in todos %}
+            <li>
+                <strong>{{ todo.title }}</strong> 
+                - 
+                <small>{{ todo.created_at }}</small>
+                <a href="{% url 'todo_update' todo.id %}">Edit</a>
+
+                <a href="{% url 'todo_delete' todo.id %}" style="color: red;">Delete</a>
+            </li>
+        {% empty %}
+            <p>No tasks yet! Time to relax. 🏝️</p>
+        {% endfor %}
+    </ul>
+</body>
+</html>

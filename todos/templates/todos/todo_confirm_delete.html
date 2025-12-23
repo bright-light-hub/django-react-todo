@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Delete Task</title>
+</head>
+<body>
+    <h1>⚠️ Delete Task?</h1>
+
+    <p>Are you sure you want to delete "<strong>{{ todo.title }}</strong>"?</p>
+    <p>This action cannot be undone.</p>
+
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Yes, Delete it</button>
+    </form>
+
+    <br>
+    <a href="{% url 'todo_list' %}">Cancel</a>
+</body>
+</html>
